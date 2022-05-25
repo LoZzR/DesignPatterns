@@ -10,9 +10,13 @@ public class Observable{
 
     protected List<Subscriber> subscribers;
 
-    public void updateState(int increment){
-        state = state + increment;
+    public final void updateState(int increment){
+        doUpdateState(increment);
         notifyObservers();
+    }
+
+    public void doUpdateState(int increment){
+        state = state + increment;
     }
 
     public void notifyObservers(){
